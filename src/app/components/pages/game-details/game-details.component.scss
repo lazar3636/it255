@@ -1,0 +1,105 @@
+.details {
+  background-color: rgba(0, 0, 0, 0.5);
+  min-height: calc(100vh - 55.97px);
+
+  .thumbnail {
+    height: 420px;
+    overflow: hidden;
+
+    img {
+      opacity: 0.8;
+      width: 100%;
+      filter: blur(5px);
+    }
+  }
+
+  .content {
+    text-align: center;
+    position: relative;
+    top: -275px;
+
+    .wrapper {
+      max-width: 900px;
+      margin: 20px auto 0;
+      position: relative;
+
+      .header {
+        .title {
+          font-size: 70px;
+          color: #f1f1f1;
+          font-weight: 700;
+          line-height: 70px;
+          white-space: nowrap;
+          text-shadow: 2px 4px 6px rgb(190, 124, 0);
+        }
+
+        .release-date,
+        .genres {
+          color: #f1f1f1;
+          font-weight: 700;
+          text-shadow: 2px 4px 6px rgb(190, 124, 0);
+        }
+
+        .rating {
+          background-color: rgba(50, 50, 50, 0.9);
+          max-width: 150px;
+          margin: 0 auto;
+          border-radius: 30%;
+          .score {
+            font-size: 32px;
+            color: rgb(190, 124, 0);
+            font-weight: bolder;
+          }
+
+          a {
+            color: rgb(190, 124, 0);
+          }
+        }
+      }
+
+      .info {
+        background-color: rgba(50, 50, 50, 0.9);
+        color: #f1f1f1;
+        text-align: left;
+        padding: 10px;
+        margin-top: 19px;
+
+        .game-data {
+          padding: 20px 20px 0 20px;
+          margin-bottom: 0;
+
+          a {
+            color: rgb(190, 124, 0);
+          }
+        }
+
+        .description {
+          padding: 20px;
+        }
+
+        .votes {
+          margin-left: 30px;
+          display: flex;
+
+          .count {
+            margin-left: 5px;
+          }
+
+          #up {
+            color: #5ee432;
+          }
+
+          #down {
+            color: #ef4666;
+            margin-left: 20px;
+          }
+        }
+
+        .trailer {
+          width: 100%;
+          margin: 20px 0;
+        }
+      }
+    }
+  }
+}

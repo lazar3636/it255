@@ -1,0 +1,72 @@
+<div class="details" *ngIf="game">
+  <div class="thumbnail">
+    <img src="{{ game.background_image }}" alt="background-image" />
+  </div>
+  <div class="content">
+    <div class="wrapper">
+      <!-- HEADER -->
+      <div class="header">
+        <h1 class="title">{{ game.name }}</h1>
+        <h2 class="release-date">Release: {{ game.released | date }}</h2>
+        <p class="genres">
+          <span *ngFor="let genre of game.genres; let last = last">
+            {{ genre?.name }} <span *ngIf="!last">, </span>
+          </span>
+        </p>
+        <div class="rating">
+          <span class="score">{{ gameRating }}</span
+          ><br />
+          <a target="_blank" href="{{ game.metacritic_url }}">Metacritic</a>
+        </div>
+      </div>
+      <!-- INFO -->
+      <div class="info">
+        <div class="about">
+          <p class="game-par" *ngIf="game.parent_platform?.length">
+            Platforms:
+            <span *ngFor="let game of game.parent_platform; let last = last">
+              {{ game.platform.name }} <span *ngIf="!last">, </span>
+            </span>
+          </p>
+          <p *ngIf="game.publishers?.length" class="game-data">
+            Publishers:
+            <span *ngFor="let publisher of game.publishers; let last = last">
+              {{ publisher.name }} <span *ngIf="!last">, </span>
+            </span>
+          </p>
+          <p *ngIf="game.website" class="game-data">
+            Website:
+            <a href="{{ game.website }}" target="_blank">{{ game.website }}</a>
+          </p>
+          <div class="description" [innerHTML]="game.description"></div>
+          <p class="votes">
+            <ng-container *ngFor="let rating of game.ratings">
+              <span *ngIf="rating.title === 'exceptional'">
+                <span class="count" id="up"
+                  >Liked: {{ rating.count || 0 }}</span
+                >
+              </span>
+              <span *ngIf="rating.title === 'skip'">
+                <span class="count" id="down"
+                  >Disliked: {{ rating.count || 0 }}</span
+                >
+              </span>
+            </ng-container>
+          </p>
+        </div>
+        <!-- TRAILER -->
+        <div class="trailers" *ngIf="game.trailers?.length">
+          <video
+            class="trailer"
+            controls
+            *ngFor="let trailer of game.trailers.slice(0, 1)"
+            poster="{{ game.background_image }}"
+          >
+            <source src="{{ trailer.data?.max }}" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

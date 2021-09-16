@@ -1,0 +1,146 @@
+<div class="container-fluid">
+  <div class="row main">
+    <div class="col-md-7">
+      <!-- register forma -->
+      <form
+        class="form-container"
+        [formGroup]="registerForm"
+        (ngSubmit)="register()"
+      >
+        <h1>Register</h1>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-lg-6">
+              <label>First Name *</label>
+              <input
+                type="text"
+                class="form-control"
+                name="fname"
+                placeholder="Enter your first name.."
+                formControlName="fname"
+              />
+              <div
+                class="alertmessage"
+                *ngIf="f.fname.invalid && f.fname.touched"
+              >
+                <div *ngIf="f.fname.errors?.required">
+                  First name is required..
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <label>Last Name *</label>
+              <input
+                type="text"
+                class="form-control"
+                name="lname"
+                placeholder="Enter your last name.."
+                formControlName="lname"
+              />
+              <div
+                class="alertmessage"
+                *ngIf="f.lname.invalid && f.lname.touched"
+              >
+                <div *ngIf="f.lname.errors?.required">
+                  Last name is required..
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email * </label>
+          <input
+            type="text"
+            class="form-control"
+            name="email"
+            placeholder="Enter your email.."
+            formControlName="email"
+          />
+          <div class="alertmessage" *ngIf="f.email.invalid && f.email.touched">
+            <div *ngIf="f.email.errors?.required">Email is required..</div>
+            <div *ngIf="f.email.errors?.email">Invalid email..</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="username">Username * </label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            placeholder="Enter an username.."
+            formControlName="username"
+          />
+          <div
+            class="alertmessage"
+            *ngIf="f.username.invalid && f.username.touched"
+          >
+            <div *ngIf="f.username.errors?.required">
+              Username is required..
+            </div>
+            <div *ngIf="f.username.errors?.minlength">Username too short..</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password * </label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Enter your password.."
+            formControlName="password"
+          />
+          <div
+            class="alertmessage"
+            *ngIf="f.password.invalid && f.password.touched"
+          >
+            <div *ngIf="f.password.errors?.required">
+              Password is required..
+            </div>
+            <div *ngIf="f.password.errors?.minlength">Password too short..</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="confirm">Confirm Password * </label>
+          <input
+            type="password"
+            class="form-control"
+            name="confirm"
+            placeholder="Confirm your password.."
+            formControlName="confirm"
+          />
+          <div
+            class="alertmessage"
+            *ngIf="f.confirm.invalid && f.confirm.touched"
+          >
+            <div *ngIf="f.confirm.errors?.required">
+              Confirmation is required..
+            </div>
+          </div>
+          <div
+            class="alertmessage"
+            *ngIf="pwdoesntmatch() && f.confirm.touched"
+          >
+            Confirmation doesn't match..
+          </div>
+        </div>
+
+        <div class="bdiv">
+          <button
+            type="submit"
+            class="btn btn-success registerBtn"
+            name="submit"
+            [disabled]="registerForm.invalid || pwdoesntmatch()"
+          >
+            Register
+          </button>
+        </div>
+
+        <!-- redirecting to login -->
+        <div class="yesnoacc">
+          <a [routerLink]="['../login']">Already have an account?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

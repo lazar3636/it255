@@ -1,0 +1,46 @@
+<div class="content">
+  <nav class="navbar navbar-expand-md">
+    <!-- left side navbar - home, games -->
+    <div class="navbar-collapse collapse order-1 order-md-0 dual-collapse">
+      <ul class="navbar-nav mr-auto helo">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/games']">Games</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- toggler i logo -->
+    <a href="#" class="navbar-brand">Logo</a>
+    <button
+      class="navbar-toggler navbar-dark"
+      type="button"
+      data-toggle="collapse"
+      data-target=".dual-collapse"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!--  login signup logout profile -->
+    <div class="navbar-collapse collapse order-3 dual-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="!authService.getUser()">
+          <a class="nav-link" [routerLink]="['/login']">Log In</a>
+        </li>
+        <li class="nav-item" *ngIf="!authService.getUser()">
+          <a class="nav-link" id="sgnup" [routerLink]="['/register']"
+            >Sign Up</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="authService.getUser()">
+          <a class="nav-link" id="logout" (click)="logout()">Log Out</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.getUser()">
+          <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

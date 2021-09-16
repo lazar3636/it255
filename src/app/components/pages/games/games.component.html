@@ -1,0 +1,70 @@
+<div class="cont-wrapper">
+  <div class="container">
+    <div class="filters">
+      <!-- SORT -->
+      <form>
+        <div class="form-group">
+          <label>Sort by:</label>
+          <select
+            class="form-control shadow-none"
+            id="slct"
+            [(ngModel)]="sort"
+            (change)="searchGames(sort)"
+            [ngModelOptions]="{ standalone: true }"
+          >
+            <option value="name">Name</option>
+            <option value="-released">Released</option>
+            <option value="-added" selected>Added</option>
+            <option value="-created">Created</option>
+            <option value="-updated">Updated</option>
+            <option value="-rating">Rating</option>
+            <option value="metacritic">Metacritic</option>
+          </select>
+        </div>
+      </form>
+      <!-- SEARCH -->
+      <div class="form-group filter">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+          <label>Search game:</label>
+          <input
+            type="search"
+            name="search"
+            id="srch"
+            class="form-control shadow-none"
+            ngModel
+            placeholder="Search any game"
+          />
+        </form>
+      </div>
+    </div>
+    <!-- GAMES -->
+    <div class="games">
+      <ng-container *ngFor="let game of games">
+        <div class="game" (click)="openGameDetails(game.id)">
+          <div class="game-thumbnail-container">
+            <img
+              *ngIf="game.background_image"
+              src="{{ game.background_image }}"
+              alt="game-thumbnail"
+              class="game-thumbnail"
+            />
+            <p *ngIf="!game.background_image">No image</p>
+          </div>
+          <div class="game-description">
+            <p class="game-name">{{ game.name }}</p>
+            <div class="game-platforms">
+              <img
+                *ngFor="let gamePlatform of game.parent_platforms"
+                src="../../../../assets/platforms/{{
+                  gamePlatform.platform.slug
+                }}.svg"
+                alt="{{ gamePlatform.platform.slug }}"
+                class="game-platform"
+              />
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

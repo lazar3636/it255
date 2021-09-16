@@ -1,0 +1,99 @@
+<!-- LANDSECTION -->
+<div class="container-fluid landsection">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 content">
+      <h1>it255 - gametracker</h1>
+      <p>
+        Get the most authoritative, unbiased reviews for the latest PS4, Xbox
+        One, PS3, Xbox 360, Wii, PC, 3DS, and DS video games at GameSpot.
+      </p>
+      <button type="button" class="btn btn-success btn-lg" (click)="scrollS()">
+        Get Started!
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- SECOND SECTION -->
+<div class="container-fluid secondsection" id="sec" #sec>
+  <div class="row">
+    <div class="col-md-8 offset-md-2 info">
+      <p>
+        Not every critic is the same. <b>gametracker</b> offers aggregated game
+        reviews from the top critics. Video games have come a long way since the
+        early '80s. Compare our expert reviews based on the publisher, platform,
+        and developer, among other metrics.
+      </p>
+    </div>
+  </div>
+  <div class="forimg">
+    <img
+      src="../../../assets/images/cgamechars.png"
+      alt="videogamecharacters"
+      height="300px"
+    />
+  </div>
+</div>
+
+<!-- RECOMMENDED -->
+<div class="py-5 recommended">
+  <div class="col mx-auto align-items-center cont">
+    <div class="heading text-center pt-5">
+      <h1 class="font-width-bold pb-5">Recommendations</h1>
+    </div>
+    <div
+      class="row mx-auto justify-content-center align-items center text-center"
+    >
+      <div
+        class="card col-lg-3 col-md-3 col-12 m-4"
+        (click)="openGameDetails('290856')"
+      >
+        <img
+          class="img-fluid w-100"
+          src="../../../../assets/images/apex.jpg"
+          alt="huaweip30pro"
+        />
+        <h5 class="font-weight-bold pt-4 pb-1">Apex Legends</h5>
+        <p>
+          Apex Legends is a free-to-play multiplayer battle royale-hero shooter
+          game developed by Respawn Entertainment and published by Electronic
+          Arts.
+        </p>
+      </div>
+      <div
+        class="card col-lg-3 col-md-3 col-12 m-4"
+        (click)="openGameDetails('415171')"
+      >
+        <img
+          class="img-fluid w-100"
+          src="../../../../assets/images/valorant.jpg"
+          alt="samsungGnote20"
+        />
+        <h5 class="font-weight-bold pt-4 pb-1">VALORANT</h5>
+        <p>
+          Valorant is a free-to-play team-based first-person hero shooter
+          developed and published by Riot Games, for Microsoft Windows.
+        </p>
+      </div>
+      <div
+        class="card col-lg-3 col-md-3 col-12 m-4"
+        (click)="openGameDetails('3272')"
+      >
+        <img
+          class="img-fluid w-100"
+          src="../../../../assets/images/rocketLeague.jfif"
+          alt="oneplus8pro"
+        />
+        <h5 class="font-weight-bold pt-4 pb-1">Rocket League</h5>
+        <p>
+          Rocket League is a vehicular soccer video game developed and published
+          by Psyonix. Often described as "soccer, but with rocket-powered cars".
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+</div>

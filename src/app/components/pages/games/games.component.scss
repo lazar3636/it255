@@ -1,0 +1,111 @@
+.cont-wrapper {
+  min-height: calc(100vh - 60px);
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .container {
+    background-color: rgba(50, 50, 50, 0.9);
+    max-width: 1240px;
+
+    .filters {
+      margin: 20px auto;
+      padding: 30px 0 0 20px;
+      display: flex;
+      justify-content: space-evenly;
+
+      .form-group {
+        width: 20%;
+        min-width: 200px;
+        color: #f1f1f1;
+
+        .form-control {
+          background-color: #202020;
+          color: #f1f1f1;
+          border: none;
+          font-size: larger;
+        }
+
+        #slct {
+          cursor: pointer;
+        }
+        input[type="search"]::-webkit-search-decoration,
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-results-button,
+        input[type="search"]::-webkit-search-results-decoration {
+          display: none;
+        }
+      }
+    }
+
+    .games {
+      display: flex;
+      flex-wrap: wrap;
+      margin: auto;
+      justify-content: center;
+
+      .game {
+        background-color: #202020;
+        margin: 10px;
+        height: 330px;
+        width: 280px;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 4px 3px 8px 0px rgba(190, 124, 0, 0.8);
+        transition: 0.3s;
+        cursor: pointer;
+
+        @media only screen and (max-width: 650px) {
+          width: 90%;
+        }
+
+        .game-thumbnail-container {
+          background-color: #000;
+          position: relative;
+          height: 172px;
+          color: #fff;
+          text-align: center;
+
+          .game-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            height: 172px;
+          }
+        }
+
+        .game-description {
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          height: 157px;
+
+          .game-name {
+            color: #fff;
+            font-weight: 700;
+            font-size: 22px;
+            margin-bottom: 20px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+
+          .game-platforms {
+            display: flex;
+
+            .game-platform {
+              width: 20px;
+              margin-right: 10px;
+            }
+          }
+        }
+
+        &:hover {
+          box-shadow: 4px 3px 11px 6px rgba(190, 124, 0, 1);
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+}

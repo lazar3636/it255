@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5">
+      <!-- login forma -->
+      <form class="form-container" [formGroup]="loginForm" (ngSubmit)="login()">
+        <h1>Log In</h1>
+        <div class="form-group">
+          <label for="username">Username *</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            placeholder="Enter your username.."
+            name="username"
+            formControlName="username"
+          />
+          <div
+            class="alertmessage"
+            *ngIf="f.username.touched && f.username.invalid"
+          >
+            <div *ngIf="f.username.errors?.required">
+              Username is required..
+            </div>
+            <div *ngIf="f.username.errors?.minlength">
+              Username is too short..
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password *</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Enter your password.."
+            formControlName="password"
+          />
+          <div
+            class="alertmessage"
+            *ngIf="f.password.touched && f.password.invalid"
+          >
+            <div *ngIf="f.password.errors?.required">
+              Password is required..
+            </div>
+            <div *ngIf="f.password.errors?.minlength">
+              Password is too short..
+            </div>
+          </div>
+        </div>
+
+        <div class="bdiv">
+          <button
+            type="submit"
+            class="btn btn-success"
+            name="submit"
+            [disabled]="loginForm.invalid"
+          >
+            Log In
+          </button>
+        </div>
+
+        <!-- redirect to /register -->
+        <div class="yesnoacc">
+          <a [routerLink]="['../register']">Create an account..</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
